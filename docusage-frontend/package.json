@@ -4,7 +4,10 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "keywords": [],
   "author": "",
@@ -13,18 +16,42 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
+    "@fortawesome/fontawesome-free": "^6.7.2",
     "@mui/material": "^6.3.0",
     "@reduxjs/toolkit": "^2.5.0",
+    "autoprefixer": "^10.4.20",
     "axios": "^1.7.9",
     "file-saver": "^2.0.5",
     "jspdf": "^2.5.2",
     "mammoth": "^1.9.0",
+    "postcss": "^8.4.49",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-dropzone": "^14.3.5",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.1.1",
+    "react-scripts": "^5.0.1",
     "sass": "^1.83.0",
-    "styled-components": "^6.1.13"
+    "styled-components": "^6.1.13",
+    "tailwindcss": "^3.4.17"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "eslint-plugin-react": "^7.37.3",
+    "globals": "^15.14.0",
+    "prettier": "^3.4.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
