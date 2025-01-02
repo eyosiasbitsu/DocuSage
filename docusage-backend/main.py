@@ -7,6 +7,12 @@ app = FastAPI()
 app.include_router(auth_router, prefix="/api/v1/auth")
 
 
+if __name__ == "__main__":
+    import uvicorn
+
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+
+
 #Hostname = dpg-ctrfm2lds78s739l6lv0-a
 #Port = 5432
 #Username =docusage_db
