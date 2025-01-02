@@ -1,7 +1,22 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const NavBar = () => {
+  const location = useLocation();
+
+  const handleScroll = (event, sectionId) => {
+    event.preventDefault(); // Prevent default anchor behavior
+    if (location.pathname === "/") {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      // Redirect to home first, then scroll after render
+      window.location.href = `/#${sectionId}`;
+    }
+  };
+
   return (
     <nav className="bg-white shadow-sm w-full">
       <div className="w-full px-4 sm:px-6 lg:px-8">
@@ -22,16 +37,32 @@ const NavBar = () => {
             <Link to="/" className="text-gray-600 hover:text-gray-900">
               Home
             </Link>
-            <a href="#about" className="text-gray-600 hover:text-gray-900">
+            <a
+              href="#about"
+              onClick={(e) => handleScroll(e, "about")}
+              className="text-gray-600 hover:text-gray-900"
+            >
               About
             </a>
-            <a href="#features" className="text-gray-600 hover:text-gray-900">
+            <a
+              href="#features"
+              onClick={(e) => handleScroll(e, "features")}
+              className="text-gray-600 hover:text-gray-900"
+            >
               Features
             </a>
-            <a href="#pricing" className="text-gray-600 hover:text-gray-900">
+            <a
+              href="#pricing"
+              onClick={(e) => handleScroll(e, "pricing")}
+              className="text-gray-600 hover:text-gray-900"
+            >
               Pricing
             </a>
-            <a href="#faq" className="text-gray-600 hover:text-gray-900">
+            <a
+              href="#faq"
+              onClick={(e) => handleScroll(e, "faq")}
+              className="text-gray-600 hover:text-gray-900"
+            >
               FAQ
             </a>
           </div>

@@ -12,10 +12,18 @@ const Home = () => {
     <div className="relative min-h-screen bg-gray-50">
       <NavBar />
       <Hero />
-      <About />
-      <Features />
-      <Pricing />
-      <FAQ />
+      <section id="about">
+        <About />
+      </section>
+      <section id="features">
+        <Features />
+      </section>
+      <section id="pricing">
+        <Pricing />
+      </section>
+      <section id="faq">
+        <FAQ />
+      </section>
       <Footer />
     </div>
   );

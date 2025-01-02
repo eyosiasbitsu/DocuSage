@@ -1,8 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate hook
 import logo from "../assets/images/logo.svg"; // Adjust the path to your logo
 import loginImage from "../assets/images/image.png"; // Adjust the path to your image
 
 const Login = () => {
+  const navigate = useNavigate(); // Initialize the navigate function
+
+  const handleLogin = (event) => {
+    event.preventDefault(); // Prevent form submission
+    // Normally, you'd validate credentials here
+    // For now, navigate to the dashboard page
+    navigate("/dashboard");
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-r from-orange-100 to-blue-100 flex items-center justify-center">
       {/* Main Container */}
@@ -14,7 +24,7 @@ const Login = () => {
           </div>
           <h2 className="text-4xl font-bold text-gray-800 mb-4">Log In to Your Account</h2>
           <p className="text-gray-600 mb-6">Welcome back! Enter your details to log in:</p>
-          <form className="space-y-6 max-w-3xl w-3/4">
+          <form className="space-y-6 max-w-3xl w-3/4" onSubmit={handleLogin}>
             {/* Email Input */}
             <div className="flex items-center bg-white border rounded-full shadow-sm focus-within:ring focus-within:ring-orange-400">
               <span className="pl-6 text-gray-400">
