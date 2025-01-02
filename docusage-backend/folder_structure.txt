@@ -1,0 +1,56 @@
+.
+├── alembic.ini
+├── app
+│   ├── constants.py
+│   ├── database
+│   │   └── database.py
+│   ├── exceptions.py
+│   ├── __init__.py
+│   ├── models
+│   │   └── user.py
+│   ├── __pycache__
+│   │   └── __init__.cpython-312.pyc
+│   ├── routers
+│   │   ├── Auth
+│   │   │   ├── constants.py
+│   │   │   ├── dependencies.py
+│   │   │   ├── domain_model.py
+│   │   │   ├── exceptions.py
+│   │   │   ├── models.py
+│   │   │   ├── protocols.py
+│   │   │   ├── __pycache__
+│   │   │   │   ├── domain_model.cpython-312.pyc
+│   │   │   │   ├── models.cpython-312.pyc
+│   │   │   │   └── router.cpython-312.pyc
+│   │   │   ├── repository.py
+│   │   │   ├── router.py
+│   │   │   ├── schemas.py
+│   │   │   ├── service.py
+│   │   │   ├── tests
+│   │   │   │   ├── test_auth_service_unit.py
+│   │   │   │   └── test_smtp.py
+│   │   │   └── utils.py
+│   │   ├── __init__.py
+│   │   └── __pycache__
+│   │       └── __init__.cpython-312.pyc
+│   └── utils
+│       ├── api_token.py
+│       ├── __init__.py
+│       ├── logger.py
+│       ├── security.py
+│       └── utils.py
+├── folder_structure.txt
+├── main.py
+├── migrations
+│   ├── env.py
+│   ├── README
+│   ├── script.py.mako
+│   └── versions
+├── __pycache__
+│   ├── config.cpython-312.pyc
+│   └── main.cpython-312.pyc
+├── README.md
+├── requirements.txt
+└── tests
+
+15 directories, 39 files
