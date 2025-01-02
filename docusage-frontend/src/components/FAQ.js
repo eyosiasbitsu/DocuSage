@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const FAQ = () => {
+  const navigate = useNavigate(); // Initialize navigate function
+
   // FAQ Data
   const faqs = [
     {
@@ -31,6 +34,11 @@ const FAQ = () => {
   // Toggle FAQ Item
   const toggleFAQ = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
+  };
+
+  // Navigate to Signup Page
+  const handleSignupNavigation = () => {
+    navigate("/login");
   };
 
   return (
@@ -74,12 +82,12 @@ const FAQ = () => {
 
         {/* Signup Button */}
         <div className="mt-10 text-center">
-          <a
-            href="#get-started"
+          <button
+            onClick={handleSignupNavigation} // Navigate to Signup page on click
             className="px-6 py-3 bg-black text-white font-bold text-xl rounded-md inline-block hover:bg-gray-800 transition"
           >
             Sign Up to Get Started
-          </a>
+          </button>
         </div>
       </div>
     </section>

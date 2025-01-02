@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Features = () => {
+  const navigate = useNavigate(); // Initialize navigate function
+
   const features = [
     {
       icon: "fas fa-file-alt",
@@ -45,6 +48,10 @@ const Features = () => {
     },
   ];
 
+  const handleExploreFeatures = () => {
+    navigate("/login"); // Navigate to the login page
+  };
+
   return (
     <section id="features" className="bg-white py-20">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
@@ -81,12 +88,12 @@ const Features = () => {
 
         {/* Button */}
         <div className="text-center mt-16">
-          <a
-            href="#explore"
+          <button
+            onClick={handleExploreFeatures} // Navigate to login page on click
             className="inline-block px-10 py-5 bg-black text-white text-xl font-bold rounded-lg shadow-lg hover:bg-gray-800"
           >
             Explore All Features
-          </a>
+          </button>
         </div>
       </div>
     </section>

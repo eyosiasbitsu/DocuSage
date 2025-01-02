@@ -67,13 +67,13 @@ const Pricing = () => {
               key={index}
               className={`cursor-pointer bg-white rounded-lg shadow-lg p-6 text-center ${
                 plan.title === selectedPlan
-                  ? "border-4 border-orange-500"
-                  : "border border-gray-300"
+                  ? "border-4 border-orange-500 relative"
+                  : "border border-gray-300 relative"
               }`}
               onClick={() => handleSelectPlan(plan.title)} // Make the whole card clickable for selection
             >
               {/* Highlight Badge */}
-              {plan.highlight && plan.title !== selectedPlan && (
+              {plan.highlight && (
                 <div className="absolute top-4 right-4">
                   <span
                     className={`px-3 py-1 ${plan.highlightStyle} text-sm font-semibold rounded-full`}
