@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Pricing = () => {
+  const [selectedPlan, setSelectedPlan] = useState("Pro"); // Default selected plan
+  const navigate = useNavigate(); // Initialize navigate function
+
   const plans = [
     {
       title: "Basic",
@@ -8,7 +12,6 @@ const Pricing = () => {
       price: "$9",
       frequency: "/month",
       features: ["Single User", "Basic Document Uploads", "Email Support"],
-      buttonStyle: "bg-white border border-gray-300 text-gray-700 hover:bg-gray-100",
     },
     {
       title: "Pro",
@@ -22,7 +25,6 @@ const Pricing = () => {
       ],
       highlight: "Best Plan",
       highlightStyle: "bg-blue-100 text-blue-600",
-      buttonStyle: "bg-orange-500 text-white hover:bg-orange-600",
     },
     {
       title: "Enterprise",
@@ -34,9 +36,16 @@ const Pricing = () => {
         "Dedicated Support",
         "Custom AI Models",
       ],
-      buttonStyle: "bg-white border border-gray-300 text-gray-700 hover:bg-gray-100",
     },
   ];
+
+  const handleSelectPlan = (planTitle) => {
+    setSelectedPlan(planTitle); // Update selected plan
+  };
+
+  const handleNavigateToLogin = () => {
+    navigate("/login"); // Redirect to login page
+  };
 
   return (
     <section id="pricing" className="bg-gradient-to-br from-blue-50 to-white py-16">
@@ -56,12 +65,15 @@ const Pricing = () => {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`bg-white rounded-lg shadow-lg p-6 text-center ${
-                plan.highlight ? "border-4 border-orange-500 relative" : ""
+              className={`cursor-pointer bg-white rounded-lg shadow-lg p-6 text-center ${
+                plan.title === selectedPlan
+                  ? "border-4 border-orange-500"
+                  : "border border-gray-300"
               }`}
+              onClick={() => handleSelectPlan(plan.title)} // Make the whole card clickable for selection
             >
               {/* Highlight Badge */}
-              {plan.highlight && (
+              {plan.highlight && plan.title !== selectedPlan && (
                 <div className="absolute top-4 right-4">
                   <span
                     className={`px-3 py-1 ${plan.highlightStyle} text-sm font-semibold rounded-full`}
@@ -87,12 +99,19 @@ const Pricing = () => {
               </ul>
 
               {/* Get Started Button */}
-              <a
-                href="#get-started"
-                className={`mt-8 inline-block px-6 py-3 font-bold rounded-lg shadow ${plan.buttonStyle}`}
+              <button
+                onClick={(e) => {
+                  e.stopPropagation(); // Prevent triggering the card's onClick
+                  handleNavigateToLogin(); // Navigate to login page
+                }}
+                className={`mt-8 inline-block px-6 py-3 font-bold rounded-lg shadow ${
+                  plan.title === selectedPlan
+                    ? "bg-orange-500 text-white hover:bg-orange-600"
+                    : "bg-white border border-gray-300 text-gray-700 hover:bg-gray-100"
+                }`}
               >
-                Get Started
-              </a>
+                {plan.title === selectedPlan ? "Selected" : "Get Started"}
+              </button>
             </div>
           ))}
         </div>

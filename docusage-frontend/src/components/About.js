@@ -1,6 +1,20 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const About = () => {
+  const navigate = useNavigate(); // Initialize navigate function
+
+  const handleGetStarted = () => {
+    navigate("/login"); // Navigate to the login page
+  };
+
+  const handleSeePricing = () => {
+    const pricingSection = document.getElementById("pricing"); // Find the Pricing section
+    if (pricingSection) {
+      pricingSection.scrollIntoView({ behavior: "smooth" }); // Smooth scroll to Pricing section
+    }
+  };
+
   return (
     <div className="bg-white py-20">
       {/* Heading Section */}
@@ -57,18 +71,18 @@ const About = () => {
           Docusage simplifies document analysis, enhances accuracy, and boosts productivity, allowing businesses to focus on what matters most.
         </p>
         <div className="mt-8 flex justify-center space-x-6">
-          <a
-            href="#get-started"
+          <button
+            onClick={handleGetStarted}
             className="px-10 py-5 bg-black text-white font-bold rounded-lg shadow-lg hover:bg-gray-800 text-lg"
           >
             Get Started for Free
-          </a>
-          <a
-            href="#pricing"
+          </button>
+          <button
+            onClick={handleSeePricing}
             className="px-10 py-5 bg-white border border-gray-300 text-gray-700 font-bold rounded-lg shadow-lg hover:bg-gray-100 text-lg"
           >
             See Plans & Pricing
-          </a>
+          </button>
         </div>
       </div>
     </div>
